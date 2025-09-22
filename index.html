@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Amor - 21 de Septiembre</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #fff8e1 0%, #fff9c4 50%, #ffecb3 100%);
+            color: #5d4037;
+            overflow-x: hidden;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        header {
+            padding: 40px 0;
+            position: relative;
+            animation: fadeIn 2s ease;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #f57c00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        
+        .date {
+            font-size: 1.5rem;
+            color: #ff8f00;
+            margin-bottom: 40px;
+            font-style: italic;
+            font-weight: 600;
+        }
+        
+        .heart-divider {
+            font-size: 2.5rem;
+            color: #ff8a65;
+            margin: 30px 0;
+            animation: pulse 2s infinite;
+        }
+        
+        .message {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 700px;
+            box-shadow: 0 10px 30px rgba(255, 152, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 1.5s ease;
+            border: 3px solid #ffd54f;
+        }
+        
+        .message:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #FFD700, #ff8a65, #FFD700);
+        }
+        
+        .message p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            text-align: center;
+            color: #5d4037;
+        }
+        
+        .poem {
+            font-style: italic;
+            color: #e65100;
+            padding: 0 20px;
+            text-align: center;
+            line-height: 2;
+            margin: 30px 0;
+            font-size: 1.2rem;
+            background: rgba(255, 243, 224, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            border-left: 5px solid #ffb300;
+            border-right: 5px solid #ffb300;
+        }
+        
+        .poem p {
+            margin-bottom: 25px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+        }
+        
+        .video-container {
+            margin: 50px auto;
+            max-width: 800px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(255, 152, 0, 0.3);
+            position: relative;
+            transition: transform 0.5s ease;
+            animation: fadeIn 2.5s ease;
+            border: 5px solid #ffb300;
+        }
+        
+        .video-container:hover {
+            transform: scale(1.02);
+        }
+        
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            display: block;
+        }
+        
+        .video-note {
+            margin-top: 15px;
+            color: #e65100;
+            font-style: italic;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .flowers-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .flower {
+            position: absolute;
+            font-size: 2.5rem;
+            color: #ffd600;
+            opacity: 0;
+            animation: fall 15s linear infinite;
+            text-shadow: 2px 2px 8px rgba(255, 179, 0, 0.6);
+            z-index: 1;
+        }
+        
+        .sunflower {
+            color: #ffc400;
+            text-shadow: 0 0 10px rgba(255, 196, 0, 0.7);
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 1.8rem;
+            color: #ff8a65;
+            opacity: 0;
+            animation: float 12s linear infinite;
+        }
+        
+        footer {
+            margin-top: 60px;
+            padding: 30px;
+            font-size: 1.1rem;
+            color: #f57c00;
+            border-top: 2px solid rgba(255, 179, 0, 0.3);
+            animation: fadeIn 3s ease;
+            background: rgba(255, 249, 196, 0.7);
+            border-radius: 15px;
+        }
+        
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-top: 20px;
+            color: #ff8a65;
+            font-weight: bold;
+        }
+        
+        .flower-border {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .corner-flower {
+            position: absolute;
+            font-size: 5rem;
+            color: #ffd600;
+            z-index: 0;
+        }
+        
+        .corner-flower:nth-child(1) {
+            top: 20px;
+            left: 20px;
+            transform: rotate(-30deg);
+        }
+        
+        .corner-flower:nth-child(2) {
+            top: 20px;
+            right: 20px;
+            transform: rotate(30deg);
+        }
+        
+        .corner-flower:nth-child(3) {
+            bottom: 20px;
+            left: 20px;
+            transform: rotate(30deg);
+        }
+        
+        .corner-flower:nth-child(4) {
+            bottom: 20px;
+            right: 20px;
+            transform: rotate(-30deg);
+        }
+        
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .video-container iframe {
+                height: 300px;
+            }
+            
+            .message {
+                padding: 25px;
+            }
+            
+            .message p {
+                font-size: 1.1rem;
+            }
+            
+            .poem p {
+                font-size: 1.4rem;
+            }
+            
+            .corner-flower {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flower-border">
+        <div class="corner-flower">🌼</div>
+        <div class="corner-flower">🌻</div>
+        <div class="corner-flower">🌼</div>
+        <div class="corner-flower">🌻</div>
+    </div>
+    
+    <div class="flowers-container" id="flowers-container"></div>
+    
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-heart"></i> Para Mi Chica Especial <i class="fas fa-heart"></i></h1>
+            <div class="date">21 de Septiembre - Día de las Flores Amarillas</div>
+        </header>
+        
+        <div class="message">
+            <p>Hoy, en este día especial, quiero recordarte lo mucho que significas para mí.</p>
+            <p>Como las flores amarillas que iluminan los campos, tú iluminas mi vida con tu amor y alegría.</p>
+            <p>Eres la razón por la que mi corazón late con fuerza cada día.</p>
+        </div>
+        
+        <div class="heart-divider">♥ ♥ ♥</div>
+        
+        <div class="poem">
+            <p>Bendito sea el año, el punto, el día,</p>
+            <p>la estación, el lugar, el mes, la hora</p>
+            <p>y el país, en el cual su encantadora</p>
+            <p>mirada encadenose al alma mía.</p>
+            <br>
+            <p>Bendita la dulcísima porfía</p>
+            <p>de entregarme a ese amor que en mi alma mora,</p>
+            <p>y el arco y las saetas, de que ahora</p>
+            <p>las llagas siento abiertas todavía.</p>
+            <br>
+            <p>Benditas las palabras con que canto</p>
+            <p>el nombre de mi amada; y mi tormento,</p>
+            <p>mis ansias, mis suspiros y mi llanto.</p>
+            <br>
+            <p>Y benditos mis versos y mi arte</p>
+            <p>pues la ensalzan, y, en fin, mi pensamiento,</p>
+            <p>puesto que ella tan sólo lo comparte.</p>
+        </div>
+        
+        <div class="heart-divider">♥ ♥ ♥</div>
+        
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/S7gMzYqXIZc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-note">Eres la mujer perfecta. Te Amo</div>
+        
+        <footer>
+            <p>Con todo mi amor, en este día y por siempre</p>
+            <div class="signature">Para mi mujer 😈</div>
+            <div class="signature">De tu Macho 😂</div>
+        </footer>
+    </div>
+
+    <script>
+        // Crear flores amarillas y corazones que caen
+        function createFlowers() {
+            const flowersContainer = document.getElementById('flowers-container');
+            const flowerSymbols = ['🌼', '🌻', '💮', '🏵️', '🌺', '🌸'];
+            
+            for (let i = 0; i < 50; i++) {
+                const flower = document.createElement('div');
+                flower.classList.add('flower');
+                
+                // Alternar entre flores normales y girasoles
+                if (i % 4 === 0) {
+                    flower.classList.add('sunflower');
+                    flower.innerHTML = '🌻';
+                } else {
+                    flower.innerHTML = flowerSymbols[Math.floor(Math.random() * flowerSymbols.length)];
+                }
+                
+                // Posición aleatoria
+                flower.style.left = Math.random() * 100 + 'vw';
+                // Retraso aleatorio en la animación
+                flower.style.animationDelay = Math.random() * 15 + 's';
+                // Duración aleatoria
+                flower.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                // Tamaño aleatorio
+                flower.style.fontSize = (Math.random() * 1.5 + 2) + 'rem';
+                
+                flowersContainer.appendChild(flower);
+            }
+            
+            // Crear algunos corazones
+            for (let i = 0; i < 25; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = Math.random() * 12 + 's';
+                heart.style.animationDuration = (Math.random() * 7 + 12) + 's';
+                heart.style.fontSize = (Math.random() * 1 + 1.5) + 'rem';
+                
+                flowersContainer.appendChild(heart);
+            }
+        }
+        
+        // Efecto de escritura para el poema
+        function animatePoem() {
+            const poemLines = document.querySelectorAll('.poem p');
+            poemLines.forEach((line, index) => {
+                line.style.opacity = 0;
+                setTimeout(() => {
+                    line.style.transition = 'opacity 1.5s ease';
+                    line.style.opacity = 1;
+                }, 1000 + (index * 600));
+            });
+        }
+        
+        // Inicializar cuando la página cargue
+        window.onload = function() {
+            createFlowers();
+            animatePoem();
+            
+            // Efecto de aparición para el mensaje
+            const message = document.querySelector('.message');
+            message.style.opacity = 0;
+            setTimeout(() => {
+                message.style.transition = 'opacity 2s';
+                message.style.opacity = 1;
+            }, 500);
+        };
+    </script>
+</body>
+</html>
